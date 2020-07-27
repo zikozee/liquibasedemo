@@ -7,8 +7,17 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
+    <!--the preconditions run before the changeSet, validations before creating or dropping, optional-->
+    <preConditions onError="HALT" onFail="HALT" onFailMessage="unauthorized access" onErrorMessage="Provide your custom message">
+        <dbms type="oracle"/>
+        <runningAs username="OJ"/>
+        <columnExists tableName="" columnName=""/>
+        <rowCount expectedRows="0" tableName=""/>
+    </preConditions>
+
+
     <changeSet id="change_1" author="zikozee">
-        <createTable tableName="Emp">
+        <createTable tableName="${table_name}">
             <column name="EmpId" type="int"></column>
             <column name="EmpName" type="varchar(10)"></column>
         </createTable>
