@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--the preconditions run before the changeSet, validations before creating or dropping, optional-->
+<!--    <preConditions onError="HALT" onFail="HALT" onFailMessage="unauthorized access" onErrorMessage="Provide your custom message">-->
+<!--        <dbms type="oracle"/>-->
+<!--        <runningAs username="OJ"/>-->
+<!--        <columnExists tableName="" columnName=""/>-->
+<!--        <rowCount expectedRows="0" tableName=""/>-->
+<!--    </preConditions>-->
+
+    <property name="table_name1" value="Emp"/>
+
+    <changeSet id="change_1" author="zikozee">
+        <createTable tableName="${table_name1}">
+            <column name="EmpId" type="int"></column>
+            <column name="EmpName" type="varchar(10)"></column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
