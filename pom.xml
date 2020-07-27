@@ -67,17 +67,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--start liquibase config-->
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <changeLogFile>src/main/resources/db/changelog/master-changelog.xml</changeLogFile>
-                    <driver>oracle.jdbc.OracleDriver</driver>
-                    <url>jdbc:oracle:thin:@localhost:1521/orclpdb</url>
-                    <username>OJ</username>
-                    <password>orcl12345</password>
-                    <outputChangeLogFile>myGenChangeLog.xml</outputChangeLogFile>
+                    <propertyFile>${project.basedir}/src/main/resources/liquibase/liquibase.properties</propertyFile>
                 </configuration>
                 <dependencies>
                     <dependency>
